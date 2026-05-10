@@ -61,7 +61,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
       className={cn(
-        "inset-x-0 z-50 px-4 flex items-center justify-center sticky top-0 h-20",
+        "inset-x-0 z-50 px-4 md:px-6 lg:px-12 flex items-center justify-center sticky top-0 h-20",
         className,
       )}
     >
@@ -74,22 +74,22 @@ const Header = ({ navigationData, className }: HeaderProps) => {
         )}
       >
         {/* Logo */}
-        <div>
-          <a href="/" className="flex items-center gap-2">
-            <img src="/image.png" alt="CodingBoss Logo" className="h-10 w-auto object-contain" />
-            <span className="text-xl font-bold tracking-tight">CodingBoss</span>
+        <div className="flex-1 flex justify-start">
+          <a href="/" className="flex items-center gap-2 group">
+            <img src="/image.png" alt="CodingBoss Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+            <span className="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">CodingBoss</span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
-        <div>
-          <NavigationMenu className="max-lg:hidden bg-muted p-0.5 rounded-full">
+        <div className="flex-1 flex justify-center">
+          <NavigationMenu className="max-lg:hidden bg-muted/50 backdrop-blur-md p-0.5 rounded-full border border-white/5">
             <NavigationMenuList className="flex gap-0">
               {navigationData.map((navItem) => (
                 <NavigationMenuItem key={navItem.title}>
                   <NavigationMenuLink
                     href={navItem.href}
-                    className={cn("px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition tracking-normal", navItem.isActive ? "bg-background text-foreground" : "")}
+                    className={cn("px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-white/60 hover:text-white hover:bg-white/10 outline outline-transparent transition-all", navItem.isActive ? "bg-white/10 text-white" : "")}
                   >
                     {navItem.title}
                   </NavigationMenuLink>
@@ -100,16 +100,17 @@ const Header = ({ navigationData, className }: HeaderProps) => {
         </div>
 
         {/* Desktop CTA */}
-        <div className="flex gap-4">
+        <div className="flex-1 flex justify-end gap-4">
           <CollaborateButton className="hidden lg:flex" />
 
           <div className="lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger id="mobile-menu-trigger">
-                <span className="rounded-full border border-border p-2 block">
+                <span className="rounded-full border border-white/10 p-2 block bg-white/5 hover:bg-white/10 transition-colors">
                   <Menu
                     width={20}
                     height={20}
+                    className="text-white"
                   />
                   <span className="sr-only">Menu</span>
                 </span>
@@ -118,16 +119,16 @@ const Header = ({ navigationData, className }: HeaderProps) => {
               <SheetContent
                 showCloseButton={false}
                 side="right"
-                className="w-full sm:w-96 p-0 border-l-0"
+                className="w-full sm:w-96 p-0 border-l-0 bg-black/95 backdrop-blur-2xl"
               >
                 <div className="flex items-center justify-between p-6">
                   <a href="/" className="flex items-center gap-2">
-                    <img src="/image.png" alt="CodingBoss Logo" className="h-8 w-auto object-contain" />
-                    <span className="text-lg font-bold tracking-tight">CodingBoss</span>
+                    <img src="/image.png" alt="CodingBoss Logo" className="h-8 w-auto object-contain brightness-0 invert" />
+                    <span className="text-lg font-bold tracking-tight text-white">CodingBoss</span>
                   </a>
                   <SheetClose id="mobile-menu-close">
-                    <span className="rounded-full border border-border p-2.5 block">
-                      <X width={16} height={16} />
+                    <span className="rounded-full border border-white/10 p-2.5 block hover:bg-white/10 transition-colors">
+                      <X width={16} height={16} className="text-white" />
                     </span>
                   </SheetClose>
                 </div>

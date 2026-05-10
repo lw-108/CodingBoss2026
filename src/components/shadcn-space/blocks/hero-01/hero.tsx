@@ -21,8 +21,8 @@ function HeroSection({ avatarList }: HeroSectionProps) {
   return (
     <section>
       <div className="w-full h-full relative">
-        <div className="relative w-full pt-16 md:pt-20 pb-16 md:pb-10 px-4 transform-gpu will-change-[transform,opacity]">
-          <div className="container mx-auto relative z-10">
+        <div className="relative w-full pt-16 md:pt-20 pb-16 md:pb-10 px-4 md:px-6 lg:px-12 transform-gpu will-change-[transform,opacity]">
+          <div className="container mx-auto relative z-10 max-w-6xl">
             <div className="flex flex-col max-w-5xl mx-auto gap-8">
               <div className="relative flex flex-col text-center items-center sm:gap-6 gap-4">
                 <motion.div
@@ -38,7 +38,7 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeInOut" }}
-                  className="lg:text-8xl md:text-7xl text-5xl font-medium leading-tight md:leading-tight lg:leading-tight flex flex-col items-center gap-2"
+                  className="lg:text-8xl md:text-7xl text-5xl font-medium leading-tight md:leading-tight lg:leading-tight flex flex-col items-center gap-2 text-white"
                 >
                   <div className="flex flex-wrap items-center justify-center gap-x-4">
                     <span>Master</span>
